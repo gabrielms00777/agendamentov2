@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Agendamentos - Perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-base-200">
+
+    <nav class="navbar bg-primary text-primary-content">
+        <div class="flex-1">
+          <a href="#" class="btn btn-ghost normal-case text-xl">Sistema de Agendamentos</a>
+        </div>
+        
+        <div class="flex-none lg:hidden">
+          <button class="btn btn-square btn-ghost" id="menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <ul class="menu menu-horizontal px-1 lg:static absolute hidden lg:flex">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Agendar</a></li>
+          <li><a href="#">Histórico</a></li>
+          <li><a href="#">Sair</a></li>
+        </ul>
+      </nav>
+    
+      
+
+  <div class="container mx-auto w-full max-w-7xl">
+    <h1 class="text-3xl font-bold text-primary mb-4">Perfil</h1>
+
+    <div id="profile-form" x-data="{ name: '', email: '', password: '' }" x-init="getUserData()">
+      <form @submit.prevent="submitForm">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="form-control">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" x-model="name" class="input input-bordered" required />
+            </div>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" x-model="email" class="input input-bordered" required />
+            </div>
+            <div class="form-control">
+              <label for="password">Senha</label>
+              <input type="password" id="password" name="password" x-model="password" class="input input-bordered" required />
+              <span class="text-xs text-muted">Mostrar senha</span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Salvar alterações</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+    };
+    document.addEventListener('alpine:init', () => {
+        let menuOpen = false;
+  
+        const toggleMenu = () => {
+          menuOpen = !menuOpen;
+          document.querySelector('.menu').classList.toggle('hidden');
+        }
+  
+        document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+      });
+
+      </script>
+</body>
+</html>
