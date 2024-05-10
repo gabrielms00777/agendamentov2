@@ -4,7 +4,7 @@ use App\Livewire\{Client, Professional, Admin};
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-auth()->loginUsingId(1);
+// auth()->loginUsingId(1);
 Route::view('/', 'welcome');
 
 Route::prefix('app')->name('client.')->middleware(['auth','verifyUserType:client'])->group(function () {
@@ -25,7 +25,7 @@ Route::prefix('profissional')->name('profissional.')->middleware(['auth','verify
     Route::get('/configuracoes', Professional\Configs::class)->name('configs');
 });
 
-Route::prefix('admin')->middleware(['auth','verifyUserType:admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth','verifyUserType:admin'])->group(function () {
     Route::get('/', Admin\Dashboard::class)->name('dashboard');  // List all clients
 
     // Route::get('/usuarios', Admin\User\Index::class)->name('users.index');  // List all users
@@ -34,6 +34,7 @@ Route::prefix('admin')->middleware(['auth','verifyUserType:admin'])->group(funct
 
     Route::get('/clientes', Admin\Client\Index::class)->name('clients.index');  // List all clients
     Route::get('/profissionais', Admin\Professional\Index::class)->name('professionals.index');
+    Route::get('/profissionais/create', Admin\Professional\Create::class)->name('professionals.create');
     Volt::route('/users', 'users.index');
 });
 
