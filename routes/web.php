@@ -15,7 +15,7 @@ Route::prefix('app')->name('client.')->middleware(['auth','verifyUserType:client
 
 });
 
-Route::prefix('profissional')->name('profissional.')->middleware(['auth','verifyUserType:profissional'])->group(function () {
+Route::prefix('profissional')->name('profissional.')->middleware(['auth','verifyUserType:professional'])->group(function () {
     Route::get('/', Professional\Dashboard::class)->name('dashboard');
     Route::get('/atendimentos', Professional\Appointment\Index::class)->name('appointments.index');
     Route::get('/agendar', Professional\Appointment\Create::class)->name('appointments.create');
@@ -47,4 +47,4 @@ Route::get('/logout', function () {
     request()->session()->regenerateToken();
 
     return redirect('/');
-});
+})->name('logout');

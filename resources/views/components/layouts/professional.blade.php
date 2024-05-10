@@ -28,18 +28,20 @@
         {{-- Right side actions --}}
         <x-slot:actions>
             <div class="hidden lg:block">
-                <x-button label="Dashboard" icon="o-envelope" link="###" class="text-white btn-ghost btn-sm"
+                <x-button label="Dashboard" icon="o-envelope" link="{{ route('profissional.dashboard') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Agendar" icon="o-bell" link="{{ route('profissional.appointments.create') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Clientes" icon="o-bell" link="{{ route('profissional.clients.index') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Serviços" icon="o-bell" link="{{ route('profissional.services.index') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Configurações" icon="o-bell" link="{{ route('profissional.configs') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Perfil" icon="o-bell" link="{{ route('profissional.profile') }}"
+                    class="text-white btn-ghost btn-sm" responsive />
+                <x-button label="Sair" icon="o-bell" link="{{ route('logout') }}" class="text-white btn-ghost btn-sm"
                     responsive />
-                <x-button label="Agendar" icon="o-bell" link="###" class="text-white btn-ghost btn-sm"
-                    responsive />
-                <x-button label="Clientes" icon="o-bell" link="###" class="text-white btn-ghost btn-sm"
-                    responsive />
-                <x-button label="Serviços" icon="o-bell" link="###" class="text-white btn-ghost btn-sm"
-                    responsive />
-                <x-button label="Configurações" icon="o-bell" link="###" class="text-white btn-ghost btn-sm"
-                    responsive />
-                <x-button label="Perfil" icon="o-bell" link="###" class="text-white btn-ghost btn-sm" responsive />
-                <x-button label="Sair" icon="o-bell" link="###" class="text-white btn-ghost btn-sm" responsive />
             </div>
         </x-slot:actions>
     </x-nav>

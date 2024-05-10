@@ -11,7 +11,11 @@ export default {
         "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
     ],
     theme: {
-        extend: {},
+        extend: {
+            "colors": {
+                "primary" : "#570FF2"
+            }
+        },
     },
 
     // Add daisyUI

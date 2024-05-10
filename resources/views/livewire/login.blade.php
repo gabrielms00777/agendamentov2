@@ -31,11 +31,11 @@ new #[Layout('components.layouts.empty')] #[Title('Login')] class
             $userType = $user->type;
 
             if ($userType === 'client') {
-                return redirect('/app');
+                return redirect()->route('client.dashboard');
             } elseif ($userType === 'profissional') {
-                return redirect('/profissional');
+                return redirect()->route('profissional.dashboard');
             } elseif ($userType === 'admin') {
-                return redirect('/admin');
+                return redirect()->route('admin.dashboard');
             } else {
                 return back()->withErrors('Usuário não autorizado para este login.');
             }
